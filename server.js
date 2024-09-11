@@ -37,7 +37,9 @@ app.get('/',function(req,res){
 //   })
 // })
 
-
+//require dotenv 
+require('dotenv').config();
+const PORT = process.env.PORT || 3000; //use to acces env file variables 
 
 
 
@@ -54,7 +56,8 @@ const personroutes = require('./routes/personRoutes');
 app.use('/person',personroutes);
 
 
-app.listen(3000,()=>{
+
+app.listen(PORT,()=>{
   console.log("server running on 3000")
 })
 //comment added for testing purpose
