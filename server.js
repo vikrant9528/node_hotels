@@ -5,6 +5,14 @@ const bodyparser = require('body-parser');
 
 
 app.use(bodyparser.json()); //store the data in req.body 
+
+//middleware functions
+const logRequest = (req,res,next)=>{
+  console.log(`[${new Date().toLocaleString()}] request made to ${req.originalUrl}`)
+  next();  //move on to the next phase
+}
+app.use(logRequest);
+
 app.get('/',function(req,res){
   res.send("welcome to hotel");
 })
